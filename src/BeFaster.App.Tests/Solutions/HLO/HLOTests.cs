@@ -10,19 +10,17 @@ namespace BeFaster.App.Tests.Solutions.HLO
 {
     public class HLOTests
     {
-        [TestCase("David Bowie", "Hello David Bowie")]
-        [TestCase("Sting", "Hello Sting")]
-        [TestCase("James Brown", "Hello James Brown")]
-        [TestCase("Craftsman", "Hello Craftsman")]
-        public void GivenAFriendlyNameShouldReturnAPersonalisedHello(string name, string expectedResult)
+        [TestCase("James Brown", "Hello, World!")]
+        public void GivenAFriendlyNameShouldReturnAPersonalisedHello(string name, string expected)
         {
             // ACT
             var result = HelloSolution.Hello(name);
 
             // ASSERT
-            Assert.AreEqual("Hello, World!", result);
+            Assert.AreEqual(expected, result);
         }
     }
 }
+
 
 
