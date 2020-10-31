@@ -2,5 +2,6 @@
 {
     public interface ICheckout
     {
+        int ComputePrice(string skus);
     }
 }

@@ -17,6 +17,8 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [SetUp]
         public void SetUp()
         {
+            _checkoutSolution = new CheckoutSolution();
+
             _products = new List<Product>()
             {
                 new Product{ SKU = "A", Price = 50},
