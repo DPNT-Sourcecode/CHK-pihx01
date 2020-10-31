@@ -31,17 +31,17 @@ namespace BeFaster.App.Solutions.CHK
         public int ComputePrice(string skus)
         {
             if (string.IsNullOrEmpty(skus))
-                throw new Exception("Error no SKU's set");
+                return 0;
 
             if (skus.Length == 1)            
-                return GetPriceForIndividualItem(skus);
+                return GetPriceForIndividualItem(skus.ToLower());
             
-            return ScanMultipleItemsAndAppyDiscount(skus);
+            return ScanMultipleItemsAndAppyDiscount(skus.ToLower());
         }       
 
         private int GetPriceForIndividualItem(string sku)
         {
-            var product = _products.Where(x => x.SKU == sku).FirstOrDefault();
+            var product = _products.Where(x => x.SKU.ToLower() == sku).FirstOrDefault();
 
             return product.Price;
         }
@@ -53,7 +53,7 @@ namespace BeFaster.App.Solutions.CHK
 
             foreach (var item in splitItems)
             {
-                var matchingProduct = _products.Where(x => x.SKU == item.ToString()).FirstOrDefault();
+                var matchingProduct = _products.Where(x => x.SKU.ToLower() == item.ToString()).FirstOrDefault();
                 matchingProducts.Add(matchingProduct);
             }           
 
@@ -80,6 +80,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 
 
