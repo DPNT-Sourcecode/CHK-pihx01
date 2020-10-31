@@ -53,13 +53,17 @@ namespace BeFaster.App.Solutions.CHK
 
         private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
-            var splitItems = skus.ToCharArray();
+            var splitItems = skus.ToLower().ToCharArray();
             var matchingProducts = new List<Product>();
 
             foreach (var item in splitItems)
             {
                 var matchingProduct = _products.Where(x => x.SKU.ToLower() == item.ToString()).FirstOrDefault();
-                matchingProducts.Add(matchingProduct);
+                
+                if (matchingProduct != null)
+                {
+                    matchingProducts.Add(matchingProduct);
+                }
             }           
 
             return GetTotalCostWithDiscountsApplied(matchingProducts);
@@ -85,4 +89,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
