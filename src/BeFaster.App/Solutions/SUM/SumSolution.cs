@@ -6,8 +6,9 @@ namespace BeFaster.App.Solutions.SUM
     {
         public static int Sum(int valueOne, int valueTwo)
         {
-            throw new SolutionNotImplementedException();
+            return valueOne + valueTwo;
         }
     }
 }
+
 
