@@ -38,6 +38,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("B", 30)]
         [TestCase("C", 20)]
         [TestCase("D", 15)]
+        [TestCase("E", 40)]
         [TestCase("a", -1)]
         [TestCase("b", -1)]
         [TestCase("x", -1)]
@@ -55,7 +56,9 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
 
         [TestCase("AAA", 130)]
+        [TestCase("AAAAA", 200)]
         [TestCase("BB", 45)]
+        [TestCase("EE", 40)]
         [TestCase("CCC", 60)]
         [TestCase("AAa", -1)]
         [TestCase("AxA", -1)]
@@ -72,3 +75,4 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }        
     }
 }
+
