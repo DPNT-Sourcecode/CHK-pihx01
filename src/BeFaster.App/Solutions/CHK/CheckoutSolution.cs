@@ -8,8 +8,8 @@ namespace BeFaster.App.Solutions.CHK
 {
     public class CheckoutSolution : ICheckout
     {
-        private List<Product> _products;
-        private List<SpecialOffer> _specialOffers;
+        private readonly List<Product> _products;
+        private readonly List<SpecialOffer> _specialOffers;
 
         public CheckoutSolution()
         {
@@ -33,11 +33,9 @@ namespace BeFaster.App.Solutions.CHK
             if (string.IsNullOrEmpty(skus))
                 throw new Exception("Error no SKU's set");
 
-            if (skus.Length == 1)
-            {
+            if (skus.Length == 1)            
                 return GetPriceForIndividualItem(skus);
-            }
-
+            
             return ScanMultipleItemsAndAppyDiscount(skus);
         }       
 
@@ -82,6 +80,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 
 
