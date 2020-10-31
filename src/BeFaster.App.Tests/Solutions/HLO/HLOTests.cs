@@ -20,8 +20,9 @@ namespace BeFaster.App.Tests.Solutions.HLO
             var result = HelloSolution.Hello(name);
 
             // ASSERT
-            Assert.AreEqual(expectedResult, result);
+            Assert.AreEqual("Hello, World!", result);
         }
     }
 }
+
 
