@@ -7,7 +7,8 @@ namespace BeFaster.App.Solutions.CHK
 {
     public class CheckoutSolution : ICheckout
     {
-        private static List<Product> _products;
+        private List<Product> _products;
+        private List<SpecialOffer> _specialOffers;
 
         public CheckoutSolution()
         {
@@ -18,6 +19,12 @@ namespace BeFaster.App.Solutions.CHK
                 new Product{ SKU = "C", Price = 20},
                 new Product{ SKU = "D", Price = 15}
             };
+
+            _specialOffers = new List<SpecialOffer>()
+            {
+                new SpecialOffer{ SKU= "A", Quantity=3, Value = 20 },
+                new SpecialOffer{ SKU= "B", Quantity=2, Value = 15 }
+            };
         }
 
         public int ComputePrice(string skus)
@@ -27,22 +34,34 @@ namespace BeFaster.App.Solutions.CHK
 
             if (skus.Length == 1)
             {
-                return ScanSingleItem(skus);
+                return GetPriceForIndividualItem(skus);
             }
 
-            return ScanMultipleItemsAndAppyDiscount();
+            return ScanMultipleItemsAndAppyDiscount(skus);
         }       
 
-        private static int ScanSingleItem(string skus)
+        private int GetPriceForIndividualItem(string sku)
         {
-            var product = _products.Where(x => x.SKU == skus).FirstOrDefault();
+            var product = _products.Where(x => x.SKU == sku).FirstOrDefault();
 
             return product.Price;
         }
 
-        private int ScanMultipleItemsAndAppyDiscount()
+        private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
-            throw new NotImplementedException();
+            var matchingProducts = _products.Where(x => x.SKU == skus).ToList();
+
+            return GetTotalCostWithDiscountsApplied(matchingProducts);
+        }
+
+        private int GetTotalCostWithDiscountsApplied(List<Product> products) 
+        {
+            var totalCost = 0;
+            var totalDiscountApplied = 0;
+
+            totalCost = products.Sum();
+
         }
     }    
 }
+
