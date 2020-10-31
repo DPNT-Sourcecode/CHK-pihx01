@@ -55,15 +55,17 @@ namespace BeFaster.App.Tests.Solutions.CHK
             Assert.AreEqual(expected, result);
         }
 
-        //[TestCase("AAA", 130)]
-        //[TestCase("AAAAA", 200)]
+        [TestCase("AAA", 130)]
+        [TestCase("AAAAA", 200)]
         [TestCase("AAAAAA", 250)]
-        //[TestCase("BB", 45)]
-        //[TestCase("EE", 40)]
-        //[TestCase("CCC", 60)]
-        //[TestCase("AAa", -1)]
-        //[TestCase("AxA", -1)]
-        //[TestCase("ABCa", -1)]
+        [TestCase("AAAAAAA", 300)]
+        [TestCase("AAAAAAAA", 380)]
+        [TestCase("BB", 45)]
+        [TestCase("EE", 40)]
+        [TestCase("CCC", 60)]
+        [TestCase("AAa", -1)]
+        [TestCase("AxA", -1)]
+        [TestCase("ABCa", -1)]
         public void GivenAListOfProductsShouldApplyDiscount(string sku, int expected)
         {
             // ARRANGE
@@ -76,5 +78,3 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }        
     }
 }
-
-
