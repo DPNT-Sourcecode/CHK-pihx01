@@ -61,6 +61,8 @@
   <ItemGroup>
     <Compile Include="SendCommandToServer.cs" />
     <Compile Include="Solutions\CHK\CheckoutSolution.cs" />
+    <Compile Include="Solutions\CHK\Product.cs" />
+    <Compile Include="Solutions\CHK\ProductOffer.cs" />
     <Compile Include="Solutions\FIZ\FizzBuzzSolution.cs" />
     <Compile Include="Solutions\HLO\HelloSolution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,10 +83,6 @@
       <Name>BeFaster.Runner</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Solutions\ARRS\" />
-    <Folder Include="Solutions\IRNG\" />
-    <Folder Include="Solutions\CHL\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

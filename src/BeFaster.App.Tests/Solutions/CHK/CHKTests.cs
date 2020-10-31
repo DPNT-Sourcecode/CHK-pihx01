@@ -11,7 +11,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
     public class CHKTests
     {
         private List<Product> _products;
-        private List<SpecialOffer> _discounts;
+        private List<SpecialOffer> _specialOffers;
 
         [SetUp]
         public void SetUp()
@@ -24,6 +24,11 @@ namespace BeFaster.App.Tests.Solutions.CHK
                 new Product{ SKU = "D", Price = 15}
             };
 
+            _specialOffers = new List<SpecialOffer>()
+            { 
+                new SpecialOffer{ SKU= "A", Quantity=3, Value = 20 },
+                new SpecialOffer{ SKU= "B", Quantity=2, Value = 15 }
+            };
 
 
         }
