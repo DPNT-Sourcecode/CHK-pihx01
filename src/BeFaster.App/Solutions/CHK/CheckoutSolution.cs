@@ -32,40 +32,44 @@ namespace BeFaster.App.Solutions.CHK
         public int ComputePrice(string skus)
         {
             if (string.IsNullOrEmpty(skus))
-                return 0;
+                return -1;
 
             var regex = new Regex(@"^[a-zA-Z0-9\s,]*$");
             if (!regex.IsMatch(skus))
-                return 0;            
+                return -1;            
 
             if (skus.Length == 1)            
-                return GetPriceForIndividualItem(skus.ToLower());
+                return GetPriceForIndividualItem(skus);
             
-            return ScanMultipleItemsAndAppyDiscount(skus.ToLower());
+            return ScanMultipleItemsAndAppyDiscount(skus);
         }       
 
         private int GetPriceForIndividualItem(string sku)
         {
-            var product = _products.Where(x => x.SKU.ToLower() == sku).FirstOrDefault();
+            var product = _products.Where(x => x.SKU == sku).FirstOrDefault();
 
             if (product == null)
-                return 0;
+                return -1;
 
             return product.Price;
         }
 
         private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
-            var splitItems = skus.ToLower().ToCharArray();
+            var splitItems = skus.ToCharArray();
             var matchingProducts = new List<Product>();
 
             foreach (var item in splitItems)
             {
-                var matchingProduct = _products.Where(x => x.SKU.ToLower() == item.ToString()).FirstOrDefault();
-                
+                var matchingProduct = _products.Where(x => x.SKU == item.ToString()).FirstOrDefault();
+
                 if (matchingProduct != null)
                 {
                     matchingProducts.Add(matchingProduct);
+                }
+                else
+                {
+                    matchingProducts.Add(new Product() {SKU=item.ToString(),Price = -1 });
                 }
             }           
 
@@ -77,7 +81,7 @@ namespace BeFaster.App.Solutions.CHK
             var totalCost = 0;
             var totalDiscount = 0;
 
-            totalCost = products.Sum(x=> GetPriceForIndividualItem(x.SKU.ToLower()));
+            totalCost = products.Sum(x=> GetPriceForIndividualItem(x.SKU));
             totalDiscount = _specialOffers.Sum(specialOffer => CalculateDiscountForItem(specialOffer, products));
 
             return totalCost - totalDiscount;
@@ -85,13 +89,14 @@ namespace BeFaster.App.Solutions.CHK
 
         private int CalculateDiscountForItem(SpecialOffer specialOffer, List<Product> products)
         {
-            var count = products.Count(x=> x.SKU.ToLower() == specialOffer.SKU.ToLower());
+            var count = products.Count(x=> x.SKU == specialOffer.SKU);
             var discountForItem = (count / specialOffer.Quantity) * specialOffer.Value;
 
             return discountForItem;
         }
     }    
 }
+
 
 
 
