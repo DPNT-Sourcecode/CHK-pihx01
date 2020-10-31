@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeFaster.App.Solutions.HLO;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,17 @@ using System.Threading.Tasks;
 
 namespace BeFaster.App.Tests.Solutions.HLO
 {
-    class HLOTests
+    public class HLOTests
     {
+        [TestCase("David Bowie", "Hello David Bowie")]
+        public void GivenAFriendlyNameShouldReturnAPersonalisedHello(string name, string expectedResult)
+        {
+            // ACT
+            var result = HelloSolution.Hello(name);
+
+            // ASSERT
+            Assert.AreEqual(expectedResult, result);
+        }
     }
 }
+
