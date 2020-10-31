@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TDL.Client.Queue.Abstractions.Response;
 
 namespace BeFaster.App.Solutions.CHK
 {
@@ -49,9 +50,14 @@ namespace BeFaster.App.Solutions.CHK
 
         private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
-            var splitItems = skus.Split('');
+            var splitItems = skus.ToCharArray();
+            var matchingProducts = new List<Product>();
 
-            var matchingProducts = _products.Where(x => x.SKU == skus).ToList();
+            foreach (var item in splitItems)
+            {
+                var matchingProduct = _products.Where(x => x.SKU == item.ToString()).FirstOrDefault();
+                matchingProducts.Add(matchingProduct);
+            }           
 
             return GetTotalCostWithDiscountsApplied(matchingProducts);
         }
@@ -76,6 +82,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 
 
