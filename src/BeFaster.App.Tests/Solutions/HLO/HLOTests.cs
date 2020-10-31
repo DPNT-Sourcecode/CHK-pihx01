@@ -10,7 +10,7 @@ namespace BeFaster.App.Tests.Solutions.HLO
 {
     public class HLOTests
     {
-        [TestCase("James Brown", "Hello, World!")]
+        [TestCase("James Brown", "Hello James Brown")]
         public void GivenAFriendlyNameShouldReturnAPersonalisedHello(string name, string expected)
         {
             // ACT
@@ -21,6 +21,7 @@ namespace BeFaster.App.Tests.Solutions.HLO
         }
     }
 }
+
 
 
 
