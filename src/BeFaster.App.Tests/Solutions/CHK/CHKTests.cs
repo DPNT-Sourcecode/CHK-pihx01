@@ -12,7 +12,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
     {
         private List<Product> _products;
         private List<SpecialOffer> _specialOffers;
-        private CheckoutSolution _checkoutSolution;
+        private ICheckout _checkoutSolution;
 
         [SetUp]
         public void SetUp()
@@ -48,8 +48,21 @@ namespace BeFaster.App.Tests.Solutions.CHK
             // ASSERT
             Assert.AreEqual(expected, result);
         }
+
+        [TestCase("AAA", 130)]
+        public void GivenAListOfProductsShouldApplyDiscount(string sku, int expected)
+        {
+            // ARRANGE
+
+            // ACT
+            var result = _checkoutSolution.ComputePrice(sku);
+
+            // ASSERT
+            Assert.AreEqual(expected, result);
+        }
     }
 }
+
 
 
 

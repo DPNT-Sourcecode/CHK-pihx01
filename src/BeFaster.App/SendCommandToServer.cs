@@ -65,7 +65,7 @@ namespace BeFaster.App
         /// <param name="args">Action.</param>
         private static void Main(string[] args)
         {
-            var checkoutSolution = new CheckoutSolution();
+            ICheckout checkoutSolution = new CheckoutSolution();
 
             var runner = new QueueBasedImplementationRunner.Builder().
                 SetConfig(Utils.GetRunnerConfig()).
@@ -88,4 +88,5 @@ namespace BeFaster.App
         }
     }
 }
+
 

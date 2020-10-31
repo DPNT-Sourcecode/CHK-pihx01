@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    public class CheckoutSolution
+    public class CheckoutSolution : ICheckout
     {
         private static List<Product> _products;
 
@@ -31,4 +31,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
