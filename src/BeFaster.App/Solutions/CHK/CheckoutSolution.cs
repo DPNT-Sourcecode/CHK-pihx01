@@ -49,7 +49,7 @@ namespace BeFaster.App.Solutions.CHK
 
         private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
-            var splitItems = skus.Split();
+            var splitItems = skus.Split('');
 
             var matchingProducts = _products.Where(x => x.SKU == skus).ToList();
 
@@ -76,6 +76,7 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 
 
