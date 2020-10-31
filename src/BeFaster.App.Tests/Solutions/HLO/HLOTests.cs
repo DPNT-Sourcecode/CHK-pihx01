@@ -22,8 +22,3 @@ namespace BeFaster.App.Tests.Solutions.HLO
         }
     }
 }
-
-
-
-
-
