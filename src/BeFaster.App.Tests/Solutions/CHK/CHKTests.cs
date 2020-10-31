@@ -50,6 +50,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
 
         [TestCase("AAA", 130)]
+        [TestCase("BB", 45)]
         public void GivenAListOfProductsShouldApplyDiscount(string sku, int expected)
         {
             // ARRANGE
@@ -62,3 +63,4 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }
     }
 }
+
