@@ -60,12 +60,20 @@ namespace BeFaster.App.Solutions.CHK
             var totalDiscount = 0;
 
             totalCost = products.Sum(x=> GetPriceForIndividualItem(x.SKU));
-            //totalDiscountApplied = _specialOffers.Sum(x => );
+            totalDiscount = _specialOffers.Sum(specialOffer => CalculateDiscountForItem(specialOffer, products));
 
             return totalCost - totalDiscount;
+        }
 
+        private int CalculateDiscountForItem(SpecialOffer specialOffer, List<Product> products)
+        {
+            var count = products.Count(x=> x.SKU == specialOffer.SKU);
+            var discountForItem = (count / specialOffer.Quantity) * specialOffer.Value;
+
+            return discountForItem;
         }
     }    
 }
+
 
 
