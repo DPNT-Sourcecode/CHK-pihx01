@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="SendCommandToServer.cs" />
     <Compile Include="Solutions\CHK\CheckoutSolution.cs" />
+    <Compile Include="Solutions\CHK\ICheckout.cs" />
     <Compile Include="Solutions\CHK\Product.cs" />
     <Compile Include="Solutions\CHK\ProductOffer.cs" />
     <Compile Include="Solutions\FIZ\FizzBuzzSolution.cs" />
@@ -86,3 +87,4 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
+

@@ -1,12 +1,34 @@
 ﻿using BeFaster.Runner.Exceptions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BeFaster.App.Solutions.CHK
 {
-    public static class CheckoutSolution
+    public class CheckoutSolution
     {
-        public static int ComputePrice(string skus)
+        private static List<Product> _products;
+
+        public CheckoutSolution()
         {
-            throw new SolutionNotImplementedException();
+            _products = new List<Product>()
+            {
+                new Product{ SKU = "A", Price = 50},
+                new Product{ SKU = "B", Price = 30},
+                new Product{ SKU = "C", Price = 20},
+                new Product{ SKU = "D", Price = 15}
+            };
         }
-    }
+
+        public int ComputePrice(string skus)
+        {
+            if (string.IsNullOrEmpty(skus))
+                throw new Exception("Error no SKU's set");
+
+            var product = _products.Where(x => x.SKU == skus).FirstOrDefault();
+
+            return product.Price;
+        }
+    }    
 }
+
