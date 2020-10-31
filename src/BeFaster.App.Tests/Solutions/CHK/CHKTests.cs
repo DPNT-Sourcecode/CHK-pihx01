@@ -29,9 +29,23 @@ namespace BeFaster.App.Tests.Solutions.CHK
                 new SpecialOffer{ SKU= "A", Quantity=3, Value = 20 },
                 new SpecialOffer{ SKU= "B", Quantity=2, Value = 15 }
             };
+        }
 
+        [TestCase("A", 50)]
+        [TestCase("B", 30)]
+        [TestCase("C", 20)]
+        [TestCase("D", 15)]
+        public void GivenAnSKUShouldCalculateCorrectPrice(string sku, string expected)
+        {
+            // ARRANGE
 
+            // ACT
+            var result = CheckoutSolution.ComputePrice(sku);
+
+            // ASSERT
+            Assert.AreEqual(expected, result);
         }
     }
 }
+
 
