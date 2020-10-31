@@ -53,10 +53,10 @@ namespace BeFaster.App.Tests.Solutions.CHK
             Assert.AreEqual(expected, result);
         }
 
-        //[TestCase("AAA", 130)]
-        //[TestCase("BB", 45)]
-        //[TestCase("CCC", 60)]
-        //[TestCase("AAa", 130)]
+        [TestCase("AAA", 130)]
+        [TestCase("BB", 45)]
+        [TestCase("CCC", 60)]
+        [TestCase("AAa", 130)]
         [TestCase("AxA", 100)]
         public void GivenAListOfProductsShouldApplyDiscount(string sku, int expected)
         {
@@ -70,5 +70,6 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }        
     }
 }
+
 
 

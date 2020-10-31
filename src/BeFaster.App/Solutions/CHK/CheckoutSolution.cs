@@ -48,6 +48,9 @@ namespace BeFaster.App.Solutions.CHK
         {
             var product = _products.Where(x => x.SKU.ToLower() == sku).FirstOrDefault();
 
+            if (product == null)
+                return 0;
+
             return product.Price;
         }
 
@@ -89,5 +92,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 
