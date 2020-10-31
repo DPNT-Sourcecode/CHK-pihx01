@@ -62,17 +62,6 @@ namespace BeFaster.App.Solutions.CHK
             if (!IsValidSetOfSKUS(skus))
                 return -1;
 
-            // HACK - ran out of time
-            if (skus == "AAAAAAAA")
-                return 380;
-
-            if (skus == "AAAAAAAAA")
-                return 380;
-
-            if (skus == "AAAAAAAAAA")
-                return 380;
-
-
             var splitItems = skus.ToCharArray();
             var matchingProducts = new List<Product>();
 
@@ -102,12 +91,6 @@ namespace BeFaster.App.Solutions.CHK
             totalDiscount = _specialOffers.Sum(specialOffer => CalculateDiscountForItem(specialOffer, products));
 
             var totalCostWithDiscountApplied = totalCost - totalDiscount;
-
-            // HACK - ran out of time
-            if (products.Where(x => x.SKU == "A").Count() >= 6)
-                totalCostWithDiscountApplied += 20;
-
-
             return totalCostWithDiscountApplied;
         }
 
@@ -131,5 +114,6 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
 

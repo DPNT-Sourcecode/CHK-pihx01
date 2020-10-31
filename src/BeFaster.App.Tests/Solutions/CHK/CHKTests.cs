@@ -9,29 +9,13 @@ using System.Threading.Tasks;
 namespace BeFaster.App.Tests.Solutions.CHK
 {
     public class CHKTests
-    {
-        private List<Product> _products;
-        private List<SpecialOffer> _specialOffers;
+    {   
         private ICheckout _checkoutSolution;
 
         [SetUp]
         public void SetUp()
         {
-            _checkoutSolution = new CheckoutSolution();
-
-            _products = new List<Product>()
-            {
-                new Product{ SKU = "A", Price = 50},
-                new Product{ SKU = "B", Price = 30},
-                new Product{ SKU = "C", Price = 20},
-                new Product{ SKU = "D", Price = 15}
-            };
-
-            _specialOffers = new List<SpecialOffer>()
-            { 
-                new SpecialOffer{ SKU= "A", Quantity=3, Value = 20 },
-                new SpecialOffer{ SKU= "B", Quantity=2, Value = 15 }
-            };
+            _checkoutSolution = new CheckoutSolution();          
         }
 
         [TestCase("A", 50)]
@@ -78,3 +62,4 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }        
     }
 }
+
