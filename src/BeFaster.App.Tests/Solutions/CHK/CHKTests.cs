@@ -42,6 +42,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("b", -1)]
         [TestCase("x", -1)]
         [TestCase("-", -1)]
+        [TestCase("", 0)]
         public void GivenAnSKUShouldCalculateCorrectPrice(string sku, int expected)
         {
             // ARRANGE
@@ -56,8 +57,9 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("AAA", 130)]
         [TestCase("BB", 45)]
         [TestCase("CCC", 60)]
-        [TestCase("AAa", 99)]
-        [TestCase("AxA", 99)]
+        [TestCase("AAa", -1)]
+        [TestCase("AxA", -1)]
+        [TestCase("ABCa", -1)]
         public void GivenAListOfProductsShouldApplyDiscount(string sku, int expected)
         {
             // ARRANGE
@@ -70,8 +72,3 @@ namespace BeFaster.App.Tests.Solutions.CHK
         }        
     }
 }
-
-
-
-
-

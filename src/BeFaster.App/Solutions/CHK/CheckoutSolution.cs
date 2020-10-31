@@ -32,7 +32,7 @@ namespace BeFaster.App.Solutions.CHK
         public int ComputePrice(string skus)
         {
             if (string.IsNullOrEmpty(skus))
-                return -1;
+                return 0;
 
             var regex = new Regex(@"^[a-zA-Z0-9\s,]*$");
             if (!regex.IsMatch(skus))
@@ -56,6 +56,9 @@ namespace BeFaster.App.Solutions.CHK
 
         private int ScanMultipleItemsAndAppyDiscount(string skus)
         {
+            if (!IsValidSetOfSKUS(skus))
+                return -1;
+
             var splitItems = skus.ToCharArray();
             var matchingProducts = new List<Product>();
 
@@ -94,9 +97,16 @@ namespace BeFaster.App.Solutions.CHK
 
             return discountForItem;
         }
+
+        private bool IsValidSetOfSKUS(string skus)
+        {
+            foreach (char item in skus.ToCharArray())
+            {
+                if (!Char.IsUpper(item))
+                    return false;
+            }
+
+            return true;
+        }
     }    
 }
-
-
-
-
