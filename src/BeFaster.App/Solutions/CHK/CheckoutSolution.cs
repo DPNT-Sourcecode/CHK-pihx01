@@ -28,7 +28,7 @@ namespace BeFaster.App.Solutions.CHK
                 new SpecialOffer{ SKU= "A", Quantity=3, Value = 20 },
                 new SpecialOffer{ SKU= "B", Quantity=2, Value = 15 },
                 new SpecialOffer{ SKU= "A", Quantity=5, Value = 30 },
-                new SpecialOffer{ SKU= "E", Quantity=2, Value = 40 }
+                new SpecialOffer{ SKU= "E", Quantity=2, Value = 40 }                
             };
         }
 
@@ -113,4 +113,5 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+
 
