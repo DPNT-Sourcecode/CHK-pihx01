@@ -25,11 +25,24 @@ namespace BeFaster.App.Solutions.CHK
             if (string.IsNullOrEmpty(skus))
                 throw new Exception("Error no SKU's set");
 
+            if (skus.Length == 1)
+            {
+                return ScanSingleItem(skus);
+            }
+
+            return ScanMultipleItemsAndAppyDiscount();
+        }       
+
+        private static int ScanSingleItem(string skus)
+        {
             var product = _products.Where(x => x.SKU == skus).FirstOrDefault();
 
             return product.Price;
         }
+
+        private int ScanMultipleItemsAndAppyDiscount()
+        {
+            throw new NotImplementedException();
+        }
     }    
 }
-
-

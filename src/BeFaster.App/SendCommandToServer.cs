@@ -88,5 +88,3 @@ namespace BeFaster.App
         }
     }
 }
-
-

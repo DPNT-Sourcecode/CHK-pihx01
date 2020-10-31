@@ -13,4 +13,3 @@ namespace BeFaster.App.Solutions.CHK
         public int Value { get; set; }
     }
 }
-
