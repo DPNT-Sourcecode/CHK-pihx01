@@ -7,9 +7,10 @@ namespace BeFaster.App.Tests.Solutions.SUM
     public class SumSolutionTest
     {
         [TestCase(1, 1, ExpectedResult = 2)]
-        public int ComputeSum(int x, int y)
+        public int ComputeSum(int valueOne, int valueTwo)
         {
-            return SumSolution.Sum(x, y);
+            return SumSolution.Sum(valueOne, valueTwo);
         }
     }
 }
+
