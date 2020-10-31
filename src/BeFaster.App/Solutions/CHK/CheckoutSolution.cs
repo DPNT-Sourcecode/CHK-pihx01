@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using TDL.Client.Queue.Abstractions.Response;
 
 namespace BeFaster.App.Solutions.CHK
@@ -32,6 +33,10 @@ namespace BeFaster.App.Solutions.CHK
         {
             if (string.IsNullOrEmpty(skus))
                 return 0;
+
+            var regex = new Regex(@"^[a-zA-Z0-9\s,]*$");
+            if (!regex.IsMatch(skus))
+                return 0;            
 
             if (skus.Length == 1)            
                 return GetPriceForIndividualItem(skus.ToLower());
@@ -80,3 +85,4 @@ namespace BeFaster.App.Solutions.CHK
         }
     }    
 }
+

@@ -40,6 +40,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
         [TestCase("D", 15)]
         [TestCase("a", 50)]
         [TestCase("b", 30)]
+        [TestCase("-", 0)]
         public void GivenAnSKUShouldCalculateCorrectPrice(string sku, int expected)
         {
             // ARRANGE
@@ -63,6 +64,7 @@ namespace BeFaster.App.Tests.Solutions.CHK
 
             // ASSERT
             Assert.AreEqual(expected, result);
-        }
+        }        
     }
 }
+
