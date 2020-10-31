@@ -57,11 +57,15 @@ namespace BeFaster.App.Solutions.CHK
         private int GetTotalCostWithDiscountsApplied(List<Product> products) 
         {
             var totalCost = 0;
-            var totalDiscountApplied = 0;
+            var totalDiscount = 0;
 
-            totalCost = products.Sum();
+            totalCost = products.Sum(x=> GetPriceForIndividualItem(x.SKU));
+            //totalDiscountApplied = _specialOffers.Sum(x => );
+
+            return totalCost - totalDiscount;
 
         }
     }    
 }
+
 
